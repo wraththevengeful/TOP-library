@@ -28,4 +28,5 @@ article{
     font-weight: 400;
     font-style: normal; 
     background-color: var(--book-read-color); 
+    padding: 1rem;
 }
