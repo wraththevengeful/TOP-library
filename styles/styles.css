@@ -5,6 +5,8 @@
     --book-read-color: rgba(0, 148, 115, 0.35);
     --read-toggle-color: #FF0000;
     --add-book-color: #ff0000;
+    --footer-color: #000;
+    --footer-text-color: white;
 }
 
 /* headers */
@@ -69,6 +71,7 @@ article{
 .bookReadToggle{
     font-size: 1.2rem;
     color: var(--read-toggle-color);
+    font-family: 'Inter', sans-serif;
 }
 
 .bookDelete{
@@ -77,4 +80,20 @@ article{
     position: relative;
     top: -15px;
     left:250px;
+}
+
+/* footer */
+
+footer{
+    display: flex;
+    background-color: var(--footer-color);
+    height: 10rem;
+    color:var(--footer-text-color);
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
 }
