@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TOP Library</title>
+    <title>Library</title>
     <link rel="stylesheet" href="./styles/normalize.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,13 +12,15 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="./images/favicon.png" type="image/png" />
   </head>
   <body>
     <header>
-      <img src="./images/logo.svg" alt="website logo" id="logo"/>
+      <img src="./images/logo.svg" alt="website logo" id="logo" />
     </header>
     <main>
-      <article>
+      <img src="./images/add-book.svg" alt="Add a Book" id="addBook" />
+      <article class="readBook">
         <img
           src="./images/delete-book.svg"
           alt="Delete the Book"
@@ -30,7 +32,7 @@
         </div>
         <div class="bookPagesAndRead">
           <p class="bookPages">Pages:200</p>
-          <a class="bookReadToggle">Mark as Read.</a>
+          <a class="bookReadToggle">Mark as Unread.</a>
         </div>
       </article>
       <article>

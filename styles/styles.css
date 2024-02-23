@@ -53,6 +53,13 @@ main{
 
 }
 
+/* add a book */
+#addBook{
+    z-index: 99;
+    position: absolute;
+    right: -50px;
+}
+
 /* Book card articles */
 article{
     display: flex;
@@ -60,7 +67,6 @@ article{
     font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
     font-style: normal; 
-    background-color: var(--book-read-color); 
     margin: 1rem;
     padding: 3em;
     height: 21rem;
@@ -68,10 +74,15 @@ article{
     -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
     box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
+    background-color: var(--book-unread-color);
+}
+
+article.readBook{
+    background-color: var(--book-read-color); 
 }
 
 .bookTitle{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
 }
 
