@@ -7,6 +7,12 @@
     --add-book-color: #ff0000;
 }
 
+/* headers */
+h1, h2, h3,p{
+    margin: 0;
+    font-weight: 400;
+}
+
 /* Header */
 header{
     background-color: var(--header-color);
@@ -24,9 +30,51 @@ header{
 
 /* Book card articles */
 article{
+    display: flex;
+    flex-direction: column;
     font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
     font-style: normal; 
     background-color: var(--book-read-color); 
-    padding: 1rem;
+    margin: 1rem;
+    padding: 3em;
+    height: 20rem;
+    width: 16rem;
+    -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.bookTitle{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.bookAuthor{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top:1rem;
+}
+
+.bookPagesAndRead{
+    padding-top: 9rem;
+}
+
+
+.bookPages{
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.bookReadToggle{
+    font-size: 1.2rem;
+    color: var(--read-toggle-color);
+}
+
+.bookDelete{
+    height: auto;
+    width: 25px;    
+    position: relative;
+    top: -15px;
+    left:250px;
 }
