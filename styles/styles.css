@@ -9,11 +9,15 @@
     --footer-text-color: white;
 }
 
+/* hide overflow horizontally */
+html{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* Hide scrollbar */
 html::-webkit-scrollbar{
     display: none;
-    max-width: 100%;
-    overflow-x: hidden;
 }
 
 body{
