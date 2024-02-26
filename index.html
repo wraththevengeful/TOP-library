@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./images/favicon.png" type="image/png" />
+    <script src="./js/script.js" defer></script>
   </head>
   <body>
     <header>
@@ -20,6 +21,24 @@
     </header>
     <main>
       <img src="./images/add-book.svg" alt="Add a Book" id="addBook" />
+      <form action="" id="addBookForm">
+        <div class="formField">
+          <label for="bookTitleInput">title</label>
+          <input type="text" name="bookTitleInput" id="bookTitleInput" />
+        </div>
+        <div class="formField">
+          <label for="bookAuthorInput">author</label>
+          <input type="text" name="bookAuthorInput" id="bookAuthorInput" />
+        </div>
+        <div class="formField">
+          <label for="bookPagesInput">author</label>
+          <input type="number" name="bookPagesInput" id="bookPagesInput" />
+        </div>
+        <div class="formField">
+          <label for="bookReadStatus">Mark as Read</label>
+          <input type="checkbox" name="bookReadStatus" />
+        </div>
+      </form>
       <article class="readBook">
         <img
           src="./images/delete-book.svg"

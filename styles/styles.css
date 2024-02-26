@@ -61,9 +61,21 @@ main{
 
 /* add a book */
 #addBook{
-    z-index: 99;
+    z-index: 2;
     position: absolute;
     right: -50px;
+    transition: right 0.2s ease-in-out;
+    opacity: 0.85;
+}
+
+#addBook:hover{
+    right:0px;
+    opacity: 1;
+}
+
+form{
+    z-index: 9;
+    position: absolute;
 }
 
 /* Book card articles */
@@ -81,6 +93,11 @@ article{
     -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
     box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
     background-color: var(--book-unread-color);
+    transition: transform 0.2s ease-in-out;
+}
+
+article:hover{
+    transform: scale(1.1);
 }
 
 article.readBook{
