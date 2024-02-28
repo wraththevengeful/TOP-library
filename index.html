@@ -19,102 +19,58 @@
     <header>
       <img src="./images/logo.svg" alt="website logo" id="logo" />
     </header>
-    <main>
-      <img src="./images/add-book.svg" alt="Add a Book" id="addBook" />
-      <form action="" id="addBookForm">
+    <form action="" id="addBookForm" class="hidden">
+      <div>
+        <h2>ADD A BOOK:</h2>
+        <img
+        src="./images/delete-book.svg"
+        alt="close the form and discard changes"
+        class="closeForm"
+            />
+      </div>
+      <div class="formFields">
         <div class="formField">
-          <label for="bookTitleInput">title</label>
+          <label for="bookTitleInput">Title</label>
           <input type="text" name="bookTitleInput" id="bookTitleInput" />
         </div>
         <div class="formField">
-          <label for="bookAuthorInput">author</label>
+          <label for="bookAuthorInput">Author</label>
           <input type="text" name="bookAuthorInput" id="bookAuthorInput" />
         </div>
         <div class="formField">
-          <label for="bookPagesInput">author</label>
+          <label for="bookPagesInput">Pages</label>
           <input type="number" name="bookPagesInput" id="bookPagesInput" />
         </div>
         <div class="formField">
-          <label for="bookReadStatus">Mark as Read</label>
+          <label for="bookReadStatus" id="bookReadStatusLabel"
+            >Mark as Read</label
+          >
           <input type="checkbox" name="bookReadStatus" />
         </div>
-      </form>
+      </div>
+      <div class="formButtons">
+        <input type="submit" value="SUBMIT" />
+        <input type="reset" />
+      </div>
+    </form>
+    <main>
+      <img src="./images/add-book.svg" alt="Add a Book" id="addBook" />
+      <article>
+        <img
+          src="./images/delete-book.svg"
+          alt="Delete the Book"
+          class="bookDelete"
+        />
+        <div class="bookTitleAndAuthor">
+          <h2 class="bookTitle">Hairy Potter</h2>
+          <h3 class="bookAuthor">J.K. Scowling</h3>
+        </div>
+        <div class="bookPagesAndRead">
+          <p class="bookPages">Pages:200</p>
+          <a class="bookReadToggle">Mark as Read.</a>
+        </div>
+      </article>
       <article class="readBook">
-        <img
-          src="./images/delete-book.svg"
-          alt="Delete the Book"
-          class="bookDelete"
-        />
-        <div class="bookTitleAndAuthor">
-          <h2 class="bookTitle">Hairy Potter</h2>
-          <h3 class="bookAuthor">J.K. Scowling</h3>
-        </div>
-        <div class="bookPagesAndRead">
-          <p class="bookPages">Pages:200</p>
-          <a class="bookReadToggle">Mark as Unread.</a>
-        </div>
-      </article>
-      <article>
-        <img
-          src="./images/delete-book.svg"
-          alt="Delete the Book"
-          class="bookDelete"
-        />
-        <div class="bookTitleAndAuthor">
-          <h2 class="bookTitle">Hairy Potter</h2>
-          <h3 class="bookAuthor">J.K. Scowling</h3>
-        </div>
-        <div class="bookPagesAndRead">
-          <p class="bookPages">Pages:200</p>
-          <a class="bookReadToggle">Mark as Read.</a>
-        </div>
-      </article>
-      <article>
-        <img
-          src="./images/delete-book.svg"
-          alt="Delete the Book"
-          class="bookDelete"
-        />
-        <div class="bookTitleAndAuthor">
-          <h2 class="bookTitle">Hairy Potter</h2>
-          <h3 class="bookAuthor">J.K. Scowling</h3>
-        </div>
-        <div class="bookPagesAndRead">
-          <p class="bookPages">Pages:200</p>
-          <a class="bookReadToggle">Mark as Read.</a>
-        </div>
-      </article>
-      <article>
-        <img
-          src="./images/delete-book.svg"
-          alt="Delete the Book"
-          class="bookDelete"
-        />
-        <div class="bookTitleAndAuthor">
-          <h2 class="bookTitle">Hairy Potter</h2>
-          <h3 class="bookAuthor">J.K. Scowling</h3>
-        </div>
-        <div class="bookPagesAndRead">
-          <p class="bookPages">Pages:200</p>
-          <a class="bookReadToggle">Mark as Read.</a>
-        </div>
-      </article>
-      <article>
-        <img
-          src="./images/delete-book.svg"
-          alt="Delete the Book"
-          class="bookDelete"
-        />
-        <div class="bookTitleAndAuthor">
-          <h2 class="bookTitle">Hairy Potter</h2>
-          <h3 class="bookAuthor">J.K. Scowling</h3>
-        </div>
-        <div class="bookPagesAndRead">
-          <p class="bookPages">Pages:200</p>
-          <a class="bookReadToggle">Mark as Read.</a>
-        </div>
-      </article>
-      <article>
         <img
           src="./images/delete-book.svg"
           alt="Delete the Book"
