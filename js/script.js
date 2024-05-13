@@ -10,7 +10,7 @@ const myLibrary = [];
  const footer = document.querySelector(`footer`);
  const form = document.querySelector(`form`);
  const closeFormButton = document.querySelector(`.closeForm`);
-// console.log(closeFormButton);
+ const bookTemplate = document.getElementById(`bookTemplate`);
 
 //constructor to add book:
 function Book(title,author,bookPages,readStatus){
@@ -24,7 +24,7 @@ function Book(title,author,bookPages,readStatus){
 function createBook(title,author,bookPages,readStatus){
     let book = new Book(title,author,bookPages,readStatus);
     myLibrary.push(book);
-    console.log(book);
+    //console.log(book);
 }
 
 //use our form to create a book:
@@ -34,12 +34,14 @@ form.addEventListener("submit",function(event){
     const authorInput = document.getElementById('bookAuthorInput').value;
     const pagesInput = document.getElementById('bookPagesInput').value;
     const readStatusInput = document.getElementById('readStatusInput').checked;
-    console.log(titleInput,authorInput,pagesInput,readStatusInput);
+    //console.log(titleInput,authorInput,pagesInput,readStatusInput);
 })
 
 createBook("test",'test',999,'done');
+createBook("test",'test',999,'done');
+createBook("test",'test',999,'done');
 
-console.log(myLibrary);
+// console.log(myLibrary);
 
 //show form to add book:
 function toggleHides(){
@@ -49,15 +51,22 @@ function toggleHides(){
     form.classList.toggle("hidden");
     form.reset();
 }
+
 addBookButton.addEventListener("click",toggleHides);
 closeFormButton.addEventListener("click",toggleHides);
 
 //function to show books:
-function displayBooks(){
-    
+function displayBooks(element){
+    const bookTemplate = document.querySelector('template');
+    let clone = bookTemplate.content.cloneNode(true);
+    clone.querySelector('.bookTitle').textContent = element.title;
+    clone.querySelector('.bookAuthor').textContent = element.author;
+    clone.querySelector('.bookPages').textContent = element.bookPages;
+    clone.querySelector('.bookReadToggle').textContent = "Mark as Read";
+    document.querySelector('main').appendChild(clone);
 }
 
 //sync book tiles with array:
-myLibrary.forEach(element => {addEventListener('DOMContentLoaded',displayBooks())
+myLibrary.forEach(element => {addEventListener('DOMContentLoaded',displayBooks(element))
 });
 
