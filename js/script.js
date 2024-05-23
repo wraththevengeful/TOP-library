@@ -12,17 +12,24 @@ const myLibrary = [];
  const closeFormButton = document.querySelector(`.closeForm`);
  const bookTemplate = document.getElementById(`bookTemplate`);
 
+ function getCurrent() {
+    const now = new Date();
+    return `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${now.getDate()}${now.getHours()}${now.getMinutes()}${now.getSeconds()}${now.getMilliseconds()}`;
+}
+
 //constructor to add book:
-function Book(title,author,bookPages,readStatus){
+function Book(id,title,author,bookPages,readStatus){
+    this.id = id;
     this.title = title;
     this.author = author;
     this.bookPages = bookPages;
     this.readStatus = readStatus;
 }
 
+
 //create and add a book:
-function createBook(title,author,bookPages,readStatus){
-    let book = new Book(title,author,bookPages,readStatus);
+function createBook(id,title,author,bookPages,readStatus){
+    let book = new Book(id,title,author,bookPages,readStatus);
     myLibrary.push(book);
     //console.log(book);
 }
@@ -37,9 +44,10 @@ form.addEventListener("submit",function(event){
     //console.log(titleInput,authorInput,pagesInput,readStatusInput);
 })
 
-createBook("test",'test',999,'done');
-createBook("test",'test',999,'done');
-createBook("test",'test',999,'done');
+createBook(getCurrent(),"test",'test',999,'done');
+createBook(getCurrent(),"test",'test',999,'done');
+createBook(getCurrent(),"test",'test',999,'done');
+createBook(getCurrent(),"Hairy Potter", "J K Scowling", 69, 'done');
 
 // console.log(myLibrary);
 
