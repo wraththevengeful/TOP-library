@@ -31,7 +31,8 @@ function Book(id,title,author,bookPages,readStatus){
 function createBook(id,title,author,bookPages,readStatus){
     let book = new Book(id,title,author,bookPages,readStatus);
     myLibrary.push(book);
-    //console.log(book);
+    console.log(book);
+    displayBooks(book);
 }
 
 //use our form to create a book:
@@ -41,15 +42,10 @@ form.addEventListener("submit",function(event){
     const authorInput = document.getElementById('bookAuthorInput').value;
     const pagesInput = document.getElementById('bookPagesInput').value;
     const readStatusInput = document.getElementById('readStatusInput').checked;
-    //console.log(titleInput,authorInput,pagesInput,readStatusInput);
+    createBook(getCurrent(),titleInput, authorInput,pagesInput,readStatusInput);
+    toggleHides();
 })
 
-createBook(getCurrent(),"test",'test',999,'done');
-createBook(getCurrent(),"test",'test',999,'done');
-createBook(getCurrent(),"test",'test',999,'done');
-createBook(getCurrent(),"Hairy Potter", "J K Scowling", 69, 'done');
-
-// console.log(myLibrary);
 
 //show form to add book:
 function toggleHides(){
@@ -75,6 +71,8 @@ function displayBooks(element){
 }
 
 //sync book tiles with array:
-myLibrary.forEach(element => {addEventListener('DOMContentLoaded',displayBooks(element))
+document.addEventListener('DOMContentLoaded', () => {
+    myLibrary.forEach(element => {
+        displayBook(element);
+    });
 });
-
