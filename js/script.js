@@ -2,6 +2,16 @@
 
 const myLibrary = [];
 
+const observer = new MutationObserver( mutationList =>{
+    for (let mutation of mutationList){
+        if(mutation.type == 'childList'){
+            myLibrary.forEach(element=>{
+                displayBooks(element);
+            })
+        }
+    }
+})
+
 //UI Logics:
 //variables for UI:
 const addBookButton = document.getElementById(`addBook`);
@@ -11,6 +21,8 @@ const footer = document.querySelector(`footer`);
 const form = document.querySelector(`form`);
 const closeFormButton = document.querySelector(`.closeForm`);
 const bookTemplate = document.getElementById(`bookTemplate`);
+
+// observer.observe(main,{childList:true, subtree:true});
 
 function getCurrent() {
     const now = new Date();
@@ -44,6 +56,7 @@ form.addEventListener("submit", function (event) {
     const readStatusInput = document.getElementById('readStatusInput').checked;
     createBook(getCurrent(), titleInput, authorInput, pagesInput, readStatusInput);
     toggleHides();
+    console.log(myLibrary);
 })
 
 
@@ -80,7 +93,12 @@ function displayBooks(element) {
         const articleElement = event.target.closest('article');
         if(articleElement){
             const bookID = articleElement.dataset.id;
+            let index = myLibrary.findIndex(book=>book.id === bookID);
             console.log(bookID);
+            if(index != -1){
+                myLibrary.splice(index,1);
+                console.log(myLibrary);
+            }
         }
 
     })
