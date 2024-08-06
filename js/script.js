@@ -1,19 +1,9 @@
-//Logic for library
-
+// Logic for library
 const myLibrary = [];
+const elementMap = new Map(); // Map to track book ID to article element
 
-const observer = new MutationObserver( mutationList =>{
-    for (let mutation of mutationList){
-        if(mutation.type == 'childList'){
-            myLibrary.forEach(element=>{
-                displayBooks(element);
-            })
-        }
-    }
-})
-
-//UI Logics:
-//variables for UI:
+// UI Logics:
+// Variables for UI
 const addBookButton = document.getElementById(`addBook`);
 const header = document.querySelector(`header`);
 const main = document.querySelector(`main`);
@@ -22,14 +12,13 @@ const form = document.querySelector(`form`);
 const closeFormButton = document.querySelector(`.closeForm`);
 const bookTemplate = document.getElementById(`bookTemplate`);
 
-// observer.observe(main,{childList:true, subtree:true});
-
+// Helper function to get current timestamp
 function getCurrent() {
     const now = new Date();
     return `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${now.getDate()}${now.getHours()}${now.getMinutes()}${now.getSeconds()}${now.getMilliseconds()}`;
 }
 
-//constructor to add book:
+// Constructor to add book
 function Book(id, title, author, bookPages, readStatus) {
     this.id = id;
     this.title = title;
@@ -38,8 +27,7 @@ function Book(id, title, author, bookPages, readStatus) {
     this.readStatus = readStatus;
 }
 
-
-//create and add a book:
+// Create and add a book
 function createBook(id, title, author, bookPages, readStatus) {
     let book = new Book(id, title, author, bookPages, readStatus);
     myLibrary.push(book);
@@ -47,7 +35,7 @@ function createBook(id, title, author, bookPages, readStatus) {
     displayBooks(book);
 }
 
-//use our form to create a book:
+// Use our form to create a book
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const titleInput = document.getElementById('bookTitleInput').value;
@@ -59,8 +47,7 @@ form.addEventListener("submit", function (event) {
     console.log(myLibrary);
 })
 
-
-//show form to add book:
+// Show/hide form
 function toggleHides() {
     header.classList.toggle("hidden");
     main.classList.toggle("hidden");
@@ -72,7 +59,7 @@ function toggleHides() {
 addBookButton.addEventListener("click", toggleHides);
 closeFormButton.addEventListener("click", toggleHides);
 
-//function to show books:
+// Function to display books
 function displayBooks(element) {
     const bookTemplate = document.querySelector('template');
     let clone = bookTemplate.content.cloneNode(true);
@@ -81,34 +68,39 @@ function displayBooks(element) {
 
     // Set the data attribute with the unique ID
     article.dataset.id = element.id;
-    
+    elementMap.set(element.id, article); // Map the ID to the DOM element
+
     clone.querySelector('.bookTitle').textContent = element.title;
     clone.querySelector('.bookAuthor').textContent = element.author;
     clone.querySelector('.bookPages').textContent = element.bookPages;
     clone.querySelector('.bookReadToggle').textContent = "Mark as Read";
 
-    
-    //function to delete book
-    deleteButton.addEventListener('click',function(event){
+    // Function to delete book
+    deleteButton.addEventListener('click', function (event) {
         const articleElement = event.target.closest('article');
-        if(articleElement){
+        if (articleElement) {
             const bookID = articleElement.dataset.id;
-            let index = myLibrary.findIndex(book=>book.id === bookID);
-            console.log(bookID);
-            if(index != -1){
-                myLibrary.splice(index,1);
-                console.log(myLibrary);
-            }
+            removeBookFromLibrary(bookID); // Remove the book from library and DOM
         }
-
-    })
+    });
 
     document.querySelector('main').appendChild(clone);
 }
 
-//sync book tiles with array:
-document.addEventListener('DOMContentLoaded', () => {
-    myLibrary.forEach(element => {
-        displayBooks(element);
-    });
-});
+// Function to remove a book from the library and DOM
+function removeBookFromLibrary(bookID) {
+    // Find and remove the book from the library array
+    const index = myLibrary.findIndex(book => book.id === bookID);
+    if (index !== -1) {
+        myLibrary.splice(index, 1);
+        console.log(`Removed book with ID ${bookID}`);
+        console.log(myLibrary);
+
+        // Remove the corresponding DOM element
+        const articleElement = elementMap.get(bookID);
+        if (articleElement) {
+            articleElement.remove();
+            elementMap.delete(bookID); // Clean up the map
+        }
+    }
+}

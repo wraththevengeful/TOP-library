@@ -219,6 +219,7 @@ article{
     box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
     background-color: var(--book-unread-color);
     transition: transform 0.2s ease-in-out;
+    text-overflow: ellipsis;
 }
 
 article:hover{
@@ -230,12 +231,12 @@ article.readBook{
 }
 
 .bookTitle{
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 
 .bookAuthor{
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     margin-top:1rem;
 }
@@ -246,14 +247,15 @@ article.readBook{
 
 
 .bookPages{
-    font-size: 1.6rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
 .bookReadToggle{
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: var(--read-toggle-color);
     font-family: 'Inter', sans-serif;
+    cursor: pointer;
 }
 
 .bookDelete{
@@ -269,6 +271,7 @@ article.readBook{
 article:hover .bookDelete {
     visibility: visible; /* Show the delete button when the container is hovered */
   }
+
 
 /* footer */
 
