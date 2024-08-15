@@ -66,6 +66,7 @@ main{
     right: -50px;
     transition: right 0.2s ease-in-out;
     opacity: 0.85;
+    user-select: none;
 }
 
 #addBook:hover{
