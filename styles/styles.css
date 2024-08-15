@@ -226,7 +226,7 @@ article:hover{
     transform: scale(1.1);
 }
 
-article.readBook{
+article.finishedBook{
     background-color: var(--book-read-color); 
 }
 

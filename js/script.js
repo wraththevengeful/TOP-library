@@ -65,6 +65,7 @@ function displayBooks(element) {
     let clone = bookTemplate.content.cloneNode(true);
     let article = clone.querySelector('article');
     let deleteButton = clone.querySelector('.bookDelete');
+    let markAsReadToggle = clone.querySelector('.bookReadToggle');
 
     // Set the data attribute with the unique ID
     article.dataset.id = element.id;
@@ -83,6 +84,31 @@ function displayBooks(element) {
             removeBookFromLibrary(bookID); // Remove the book from library and DOM
         }
     });
+
+    //Mark as read toggle
+    markAsReadToggle.addEventListener('click', function(event){
+        const articleElement = event.target.closest('article');
+        if(articleElement){
+            const bookID = articleElement.dataset.id;
+            const index = myLibrary.findIndex(book => book.id === bookID);
+            //Toggle text
+            let oldText = this.textContent;
+            console.log(oldText);
+            this.textContent = this.textContent == "Mark as Read" ? "Mark as Unread" : "Mark as Read";
+            if(index !== -1){
+                myLibrary[index].readStatus = myLibrary[index].readStatus == false ? true : false;
+                console.log(myLibrary[index]);
+            };
+            articleElement.classList.toggle('finishedBook');
+        }
+    });
+
+
+    //Set class for read books
+    if(element.readStatus == true){
+        article.classList.add('finishedBook');
+        markAsReadToggle.innerText = "Mark as Unread";
+    }
 
     document.querySelector('main').appendChild(clone);
 }
