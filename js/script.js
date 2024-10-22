@@ -18,13 +18,23 @@ function getCurrent() {
     return `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${now.getDate()}${now.getHours()}${now.getMinutes()}${now.getSeconds()}${now.getMilliseconds()}`;
 }
 
-// Constructor to add book
-function Book(id, title, author, bookPages, readStatus) {
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.bookPages = bookPages;
-    this.readStatus = readStatus;
+// // Constructor to add book
+// function Book(id, title, author, bookPages, readStatus) {
+//     this.id = id;
+//     this.title = title;
+//     this.author = author;
+//     this.bookPages = bookPages;
+//     this.readStatus = readStatus;
+// }
+
+class Book{
+    constructor(id,title,author,bookPages,readStatus){
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.bookPages = bookPages;
+        this.readStatus = readStatus;
+    }
 }
 
 // Create and add a book
